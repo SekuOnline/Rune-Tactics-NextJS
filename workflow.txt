@@ -1,0 +1,16 @@
+Workflow:
+
+
+August 18th:
+
+	Converted the Rune-Tactics homepage over to NodeJS (Except for Submit button)
+	
+	Goals for Future: 
+		- IMPORTANT: Test upload Next.JS Runetactics home page to see if it renders correctly. If it doesn't, it must be made to work
+			before continuing expanding the Next.JS implementation.
+			
+		- Start by adding a new page for lineup viewing, styling, ect.
+		- Install Runeterra JS library
+		- Look into dynamic Routing using Next.JS
+		- Integrate JavaScript into Next.JS implementation & Test.
+		
