@@ -14,7 +14,7 @@ html, body{
     /* background-color: #1D2542; */
     height:100%;
     min-height:100%;
-    background-image: url("./img/RuneTactics_Homepage.jpg");
+    background-image: url("./RuneTactics_Homepage.jpg");
     background-size: cover;
     background-repeat: no-repeat;
 
@@ -58,7 +58,7 @@ h1{
 }
 
 
-.DeckBoxContainer{
+.DeckBoxContainer, .DeckCodeDisplay{
     /* Contains "VerticalThinBoxes */
     display:flex;
     flex-direction: row;
@@ -67,7 +67,9 @@ h1{
 
 }
 
-.DeckBoxContainer input[type="text"]{
+
+
+.DeckCodeDisplay input[type="text"]{
     background-color: #F2f3f7;
     border: solid 2px #1A275D;
     border-radius: 10px;
