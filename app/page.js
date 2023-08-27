@@ -5,7 +5,7 @@ import {useState} from "react";
 // import styles from './page.module.css'
 import  * as components from "@/app/components/Components.js"
 import logo from "../assets/Logo-Filled.png"
-import submitButton from "../assets/submitButton1.png"
+import submitButton from "../assets/SubmitButton1.png"
 
 
 export default function Home() {
