@@ -1,4 +1,5 @@
 'use client'
+import Image from 'next/image'
 import React from "react";
 
 // function DeckDisplayContainer({idNum}) {
@@ -11,6 +12,8 @@ import React from "react";
 
 export function DeckCodeDisplay(props){
     // console.log(props.displayCodes)
+    // console.log("I re-rendered(DeckCodeDisplay)")
+
     
     return(
         
@@ -29,12 +32,17 @@ export function DeckCodeDisplay(props){
             idNum={'3'}
             displayCodes = {props.displayCodes}
             handleDisplayCodeChange = {props.handleDisplayCodeChange}/>
+
+            <img className={"submitButton"} src={props.submitButton.src} alt={"Submit Button"} onClick={props.handleSubmittedCodeChange}></img>
+            
         </div>
     )
 }   
 
 export function DeckCodeContainer(props){
     // console.log(props.displayCodes)
+    // console.log("I re-rendered (CodeContainer)")
+
     return (
         <div className="VerticalDisplayBox">
 
@@ -43,7 +51,8 @@ export function DeckCodeContainer(props){
                 <input 
                     type="text" 
                     className="DeckCodeTextBox" 
-                    defaultValue={props.displayCodes[props.idNum-1]} 
+                    //Not sure if this is needed, might be for URL rendering of codes
+                    // defaultValue={props.displayCodes[props.idNum-1]} 
                     onChange={props.handleDisplayCodeChange} 
                     placeholder={"Deck "}
                     id={props.idNum}
@@ -57,42 +66,57 @@ export function DeckCodeContainer(props){
 }
 
 
-export function DeckBoxDisplay(){
+export function DeckBoxDisplay(props){
+    // console.log("I re-rendered")
     return(
+        
         <div className="DeckBoxContainer">
-            <DeckBoxContainer idNum={'1'}/>
-            <DeckBoxContainer idNum={'2'}/>
-            <DeckBoxContainer idNum={'3'}/>
+            <DeckBoxContainer 
+                idNum = {'1'} 
+                submittedCodes = {props.submittedCodes}
+            />
+
+            <DeckBoxContainer 
+                idNum={'2'}
+                submittedCodes = {props.submittedCodes}
+            />
+
+            <DeckBoxContainer 
+                idNum={'3'}
+                submittedCodes = {props.submittedCodes}            
+            />
+
+
         </div>
+
+        
     )
 }
 
-// export function DeckBoxContainer({idNum}){
+export function DeckBoxContainer(props){
+    const id = props.idNum
+    const deckCode = props.submittedCodes[id-1]
 
-//     //State for deck-codes
-//     const [deckCode, setDeckCode] = React.useState('')
-    
-//     //Hides the deckBoxes if there is no active deckCode
-//     //let hiddenstyle = {}
-//     let hiddenstyle = {height: '300px'}
+    //Hides the deckBoxes if there is no active deckCode
+    //let hiddenstyle = {}
+    let hiddenstyle = {height: '900px'}
+    if (deckCode == ''){
+        hiddenstyle = {display: 'none'}
+    }
 
-//     if (deckCode == ''){
-//         hiddenstyle = {display: 'none'}
-//     }
-
-//     return(
-//         <div 
-//         className="VerticalDisplayBox" 
-//         id={"Deck"+idNum+"VB"}
-//         style={hiddenstyle}
+    return(
+        <div 
+        className="VerticalDisplayBox" 
+        id={"Deck"+props.id+"VB"}
+        style={hiddenstyle}
         
-//         >
-//             <div className="DeckBox" id={"DeckBox"+idNum}>
+        >
+            <div className="DeckBox" id={"DeckBox"+props.id}>
 
-//             </div>
-//         </div>
-//     )
-// }
+            </div>
+        </div>
+    )
+}
 
 // export default function Form() {
 //     const [deckCodes, setDeckCodes] = useState({

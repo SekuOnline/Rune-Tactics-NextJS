@@ -9,8 +9,16 @@ August 18th:
 		- IMPORTANT: Test upload Next.JS Runetactics home page to see if it renders correctly. If it doesn't, it must be made to work
 			before continuing expanding the Next.JS implementation.
 			
+		- Implement dynamic DOM rendering of components to see if it works (button that loads html)
 		- Start by adding a new page for lineup viewing, styling, ect.
 		- Install Runeterra JS library
 		- Look into dynamic Routing using Next.JS
 		- Integrate JavaScript into Next.JS implementation & Test.
 		
+August 24th:
+	Added state to the main page.
+	
+	To do:
+		- Implement button that changes the state of submitted deckCodes to that of the display codes
+		- Check that Vercel allows for dynamic HTML rendering 
+		- setup Runeterra deck processing.
