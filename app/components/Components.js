@@ -1,14 +1,47 @@
 'use client'
+import { headers, images } from '@/next.config';
 import Image from 'next/image'
 import React from "react";
 
-// function DeckDisplayContainer({idNum}) {
-//     //Using state to maintain the value of deckCodes across pages.
-//     const [deckCode, setDeckCode] = React.useState('');
-    
-    
-    
-// }
+//------------------------------------
+//Titlecard 
+//------------------------------------
+
+export function TitleCard(props){
+    console.log("Updated titlecard")
+    let imgStyle = {}
+    let headerStyle = {}
+    let titleCardStyle = {}
+
+    for (let i = 0; i < 3; i++){
+        console.log(props.submittedCodes[i])
+        if (props.submittedCodes[i] != ''){
+            
+            imgStyle = {display:"None"}
+            headerStyle = {fontSize:"200%" }
+            titleCardStyle = {paddingTop: "2%", paddingBottom: '2%'}
+            break
+        }
+    }
+
+    return(
+        <div className='TitleCard' style={titleCardStyle}>
+          {/*Logo + Title */}
+          {/* <Image
+            
+            src={props.logo}
+            alt="Rune-Tactics Logo"
+            style={imgStyle}
+          /> */}
+          <h1 style={headerStyle}>RuneTactics</h1>
+        </div>
+    )
+
+}
+
+//------------------------------------
+//Deck-Code boxes
+//------------------------------------
 
 export function DeckCodeDisplay(props){
     // console.log(props.displayCodes)
@@ -65,6 +98,9 @@ export function DeckCodeContainer(props){
     )
 }
 
+//------------------------------------
+//DeckBoxes
+//------------------------------------
 
 export function DeckBoxDisplay(props){
     // console.log("I re-rendered")
@@ -95,6 +131,7 @@ export function DeckBoxDisplay(props){
 
 export function DeckBoxContainer(props){
     const id = props.idNum
+    console.log("ID: "+(id-1))
     const deckCode = props.submittedCodes[id-1]
 
     //Hides the deckBoxes if there is no active deckCode
@@ -107,28 +144,14 @@ export function DeckBoxContainer(props){
     return(
         <div 
         className="VerticalDisplayBox" 
-        id={"Deck"+props.id+"VB"}
+        id={"Deck"+id+"VB"}
         style={hiddenstyle}
         
         >
-            <div className="DeckBox" id={"DeckBox"+props.id}>
+            <div className="DeckBox" id={"DeckBox"+id}>
 
             </div>
         </div>
     )
 }
 
-// export default function Form() {
-//     const [deckCodes, setDeckCodes] = useState({
-//         codeOne : "",
-//         codeTwo : "",
-//         codeThree : "",
-//     })
-
-//     function codeOneChange(e) {
-//         setDeckCodes({
-//             ..deckCodes,
-
-//         })
-//     }
-// }

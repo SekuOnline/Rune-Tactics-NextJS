@@ -48,17 +48,11 @@ export default function Home() {
   return (
     <div>
         {/* <Header/> */}
-        {/* <h1>{deckCodes.displayCodes}</h1> Remove later*/}
-        <div className='TitleCard'>
-          {/*Logo + Title */}
-          <Image
-            height={150}
-            width={150}
-            src={logo}
-            alt="Rune-Tactics Logo"
-          />
-          <h1>RuneTactics</h1>
-        </div>
+        <components.TitleCard 
+          submittedCodes = {deckCodes.submittedCodes}
+          logo = {logo}
+        />
+        
         
         
         <components.DeckCodeDisplay
@@ -66,7 +60,7 @@ export default function Home() {
           handleDisplayCodeChange = {handleDisplayCodeChange}
           handleSubmittedCodeChange = {handleSubmittedCodeChange}
           submitButton = {submitButton}
-          
+
 
         />
 
